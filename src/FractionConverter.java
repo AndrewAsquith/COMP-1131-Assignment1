@@ -1,3 +1,15 @@
+//==============================================
+// Andrew Asquith
+// COMP 1131
+// Assignment 1 
+// Fraction to Decimal Converter
+//
+// This program takes a user provided numerator and denominator
+// converts it to a decimal and displays the result.
+// 
+//==============================================
+
+//import the Scanner class
 import java.util.Scanner;
 
 public class FractionConverter {
@@ -27,9 +39,11 @@ public class FractionConverter {
 
 					// get the next number from user input
 					numerator = inputReader.nextInt();
+					
 					// discard any extra input
 					inputReader.nextLine();
 
+					//numerator is valid so we can continue to denominator
 					numeratorValid = true;
 
 				} else {
@@ -43,10 +57,11 @@ public class FractionConverter {
 					} else {
 						// otherwise repeat their invalid input with a friendly
 						// message
-						System.out.println("\"" + nonNumericInput + "\" is not a number we can use for numerator.");
+						System.out.println("\"" + nonNumericInput 
+								+ "\" is not a number that is "
+								+"valid as a numerator.");
 					}
 				}
-
 			}
 			while (!denominatorValid) {
 				
@@ -55,6 +70,7 @@ public class FractionConverter {
 				if (inputReader.hasNextInt()) {
 					// get the next number from user input
 					denominator = inputReader.nextInt();
+					
 					// discard any extra input
 					inputReader.nextLine();
 
@@ -76,15 +92,18 @@ public class FractionConverter {
 					} else {
 						// otherwise repeat their invalid input with a friendly
 						// message
-						System.out.println("\"" + nonNumericInput + "\" is not a number we can use for denominator.");
+						System.out.println("\"" + nonNumericInput 
+								+ "\" is not a number that is "
+								 + "valid as a denominator.");
 					}
 				}
 			}
+			//do the calculation, forcing floating point
 			double decimalRepresentation = (double) numerator / (double) denominator;
 			System.out.println(numerator + "/" + denominator + " is equal to " + decimalRepresentation);
 		}
+		//close the input stream and say goodbye
 		inputReader.close();
 		System.out.println("Goodbye!");
 	}
-
 }
